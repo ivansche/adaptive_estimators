@@ -102,3 +102,12 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+idnns/information/__pycache__/
+idnns/networks/__pycache__/
+idnns/plots/__pycache__/
+idnns/__pycache__/
+/idnns/.idea/
+.idea/
+/figure.jpg
+/jobs/
