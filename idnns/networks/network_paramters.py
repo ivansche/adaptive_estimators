@@ -44,7 +44,7 @@ def get_default_parser(num_of_samples=None):
 	                    type=int, help='max number of epochs')
 
 	parser.add_argument('-net',
-	                    '-n', dest="net_type", default='1',
+	                    '-n', dest="net_type", default='10',
 	                    help='The architecture of the networks')
 
 	parser.add_argument('-inds',
@@ -140,6 +140,8 @@ def select_network_arch(type_net):
 		layers_sizes = [[10]]
 	elif type_net == '6':
 		layers_sizes = [[1, 1, 1, 1]]
+	elif type_net == '10':
+		layers_sizes = [[5, 5, 5, 5, 5]]
 	else:
 		# Custom network
 		layers_sizes = [map(int, inner.split(',')) for inner in re.findall("\[(.*?)\]", type_net)]
