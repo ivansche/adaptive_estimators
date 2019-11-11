@@ -155,7 +155,7 @@ def extract_probs(label, x):
 
 def get_information(activation,ws, x, label, num_of_bins, interval_information_display, \
                     model, layerSize, py_hats=0,multiple_bins=True,kde=False,
-                    per_layer_bins=False, lower=False, maxentropy=True):
+                    per_layer_bins=True, lower=False, maxentropy=True):
     """Calculate the information for the network for all the epochs and all the layers"""
     pys, pys1, p_y_given_x, b1, b, unique_a, unique_inverse_x, unique_inverse_y, pxs = extract_probs(label, x)
     np.set_printoptions(edgeitems=30)
@@ -263,7 +263,7 @@ def set_up_bins(ws,activation, num_of_bins, multiple_bins=True, plot_hist=False,
                     plt.ylabel("Frequency")
                     plt.show()
     if multiple_bins:
-            if per_layer_bins:
+            if per_layer_bins and maxentropy:
                 max_val=find_per_layer_max_value(ws)
                 #print("Max ReLU values:",max_val)
                 bins=[]
